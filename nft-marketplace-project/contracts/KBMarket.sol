@@ -10,7 +10,7 @@ import 'hardhat/console.sol';
 contract KBMarket is ReentrancyGuard {
     using Counters for Counters.Counter;
 
-    /* number of items minting, number of transactions, tokens that have not been sold
+    /* Keep track of number of items minting, number of transactions, tokens that have not been sold
      keep track of tokens total number - tokenId
      arrays need to know the length - help to keep track for arrays */
 
@@ -27,7 +27,8 @@ contract KBMarket is ReentrancyGuard {
      uint256 listingPrice = 0.045 ether;
 
      constructor() {
-         //set the owner
+         //set the owner, buyer -> msg.sender, is the user that:
+         //access portal, buys the token and holds a portfolio
          owner = payable(msg.sender);
      }
 
@@ -43,7 +44,8 @@ contract KBMarket is ReentrancyGuard {
          bool sold;
      }
 
-    // tokenId return which MarketToken -  fetch which one it is 
+    //mapping creates hash table, key->value. TokenId->token object.
+    //tokenId returns which MarketToken -  fetch which one it is 
     //marketTokenInventory - keeps track of all our token information
     mapping(uint256 => MarketToken) private marketTokenInventory;
 
