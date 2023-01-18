@@ -2,7 +2,7 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 
 require("@nomiclabs/hardhat-waffle");
-const projectId = 'add your project id here'
+const projectId = '923e79941f274c848b9e8e1ac8b965b1'
 const fs = require('fs')
 const keyData = fs.readFileSync('./p-key.txt', {
   encoding:'utf8', flag:'r'
